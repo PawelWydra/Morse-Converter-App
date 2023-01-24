@@ -9,13 +9,9 @@ class Coder:
     def __str__(self):
         return self.code_output
 
-    def decode(self):
-        try:
-            for letter in self.string_to_code:
-                self.code_output += MORSE_CODE_DICT[letter.capitalize()]
-                print(MORSE_CODE_DICT[letter.capitalize()])
-        except KeyError:
-            print("Failed, maybe try with other word.")
+    def code(self):
+        for letter in self.string_to_code:
+            self.code_output += MORSE_CODE_DICT[letter.capitalize()]
 
 
 print('ℳ𝒪ℛ𝒮ℰ 𝒞𝒪𝒟ℰ 𝒞𝒪𝒩𝒱ℰℛ𝒯ℰℛ')
@@ -23,8 +19,13 @@ should_continue = True
 
 while should_continue:
     string_input = input("Hi, please entry a word to convert into morse code \n")
-    coder = Coder(string_input)
-    coder.decode()
-    print(coder.code_output)
-    if (result := input('Would you like to continue?? Yes/No? \n').lower()) == "No":
+    try:
+        coder = Coder(string_input)
+        coder.code()
+        print(f"Your string was {string_input} and converted successfully into {coder}")
+
+    except KeyError:
+        print("Failed, maybe try with other word.")
+
+    if (result := input('Would you like to continue?? Yes/No? \n').lower()) == "no":
         should_continue = False
