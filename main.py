@@ -2,7 +2,9 @@ from morse_data import MORSE_CODE_DICT
 
 print('ℳ𝒪ℛ𝒮ℰ 𝒞𝒪𝒟ℰ 𝒞𝒪𝒩𝒱ℰℛ𝒯ℰℛ')
 
-while should_continue := True:
+should
+
+while should_continue:
     string_input = input("Hi, please entry a word to convert into morse code \n")
     morse_code_output = ''
     try:
