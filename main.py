@@ -7,11 +7,9 @@ class Coder:
         self.code_output = ""
 
     def __str__(self):
-        return self.code_output
-
-    def code(self):
         for letter in self.string_to_code:
             self.code_output += MORSE_CODE_DICT[letter.capitalize()]
+        return self.code_output
 
 
 print('ℳ𝒪ℛ𝒮ℰ 𝒞𝒪𝒟ℰ 𝒞𝒪𝒩𝒱ℰℛ𝒯ℰℛ')
@@ -21,7 +19,6 @@ while should_continue:
     string_input = input("Hi, please entry a word to convert into morse code \n")
     try:
         coder = Coder(string_input)
-        coder.code()
         print(f"Your string was {string_input} and converted successfully into {coder}")
 
     except KeyError:
